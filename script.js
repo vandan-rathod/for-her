@@ -97,3 +97,20 @@ document.querySelector('#prevBtn').addEventListener('click', () => {
   activeIndex = (activeIndex - 1 + cards.length) % cards.length;
   cards[activeIndex].classList.add('active');
 });
+document.addEventListener('keydown',(e)=> {
+    if (e.code==='Space') {
+      const cardsContainer = document.querySelector('.cards-container');
+      const videoContainer = document.querySelector('.video-container');
+
+      if (!videoContainer.classList.contains('hidden')) {
+        videoContainer.classList.add('hidden');
+        cardsContainer.classList.remove('hidden');
+      } else {
+        cardsContainer.classList.add('hidden');
+        videoContainer.classList.remove('hidden');
+
+        const video=document.getElementById('love-video');
+        video.play();
+      }
+    }
+});
